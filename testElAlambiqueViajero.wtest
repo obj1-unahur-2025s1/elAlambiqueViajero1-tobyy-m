@@ -1,6 +1,8 @@
+import vehiculos.*
 import elAlambiqueViajero.*
+import lugares.*
 
-test"luke viaja a paris"{
+test "luke viaja a paris"{
     luke.viajar(paris)
     assert.equals("Llavero de la torre Eiffel",luke.recuerdo())
 }
@@ -8,5 +10,65 @@ test"luke viaja a paris"{
 test "Luke cuenta cuando va de viaje"{
     luke.viajar(paris)
     assert.that(luke.cuantosViajes() > 0)
+}
 
+test "Luke viaja a buenos aires"{
+    luke.viajar(buenosAires)
+    assert.equals("Mate",luke.recuerdo())
+}
+
+test "Luke viaja a paris en el Alambique y le queda energía en el vehiculo"{
+    luke.viajar(paris)
+    assert.that(alambiqueVeloz.tieneEnergía())
+}
+
+test "Luke viaja a buenos aires y le queda combustible"{
+    luke.viajar(buenosAires)
+    assert.that(alambiqueVeloz.tieneEnergía())
+}
+
+test "Luke viaja a bagdad y le queda combustible"{
+    luke.viajar(bagdad)
+    assert.that(alambiqueVeloz.tieneEnergía())
+}
+
+test "Luke viaja a bagdad con un nuevo recuerdo"{
+    luke.viajar(bagdad)
+    bagdad.recuerdoNuevo("Bidón de petroleo Crudo")
+    assert.equals("Bidón de petroleo Crudo",luke.recuerdo())
+}
+
+test "Luke viaja a las vegas cunado homenajean a Buenos Aires"{
+    lasVegas.homenaje(buenosAires)
+    luke.viajar(lasVegas)
+    assert.equals("Mate",luke.recuerdo())
+}
+
+test "Luke viaja a Buenos Aires dos veces y se queda sin combustible"{
+    luke.viajar(buenosAires)
+    luke.viajar(buenosAires)
+    luke.viajar(paris)
+    assert.notEquals("Llavero de la torre Eiffel",luke.recuerdo())
+}
+
+test "Luke viaja  a Buenos Aires con el superChatarraEspacial pero no puede ir a paris"{
+    luke.vehiculo(superChatarraEspacial)
+    luke.viajar(buenosAires)
+    luke.viajar(paris)
+    assert.notEquals("Llavero de la torre Eiffel",luke.recuerdo())
+}
+
+test "Luke no puede viajar a mónaco con el superChatarraEspacial"{
+    luke.vehiculo(superChatarraEspacial)
+    luke.viajar(monaco)
+    assert.notEquals("Vehiculo miniatura de Formula 1",luke.recuerdo())
+}
+
+test "Luke viaja 3 veces a mónaco con el Mustang Mach E y no puede viajar a Buenos Aires"{
+    luke.vehiculo(mustangMachE)
+    luke.viajar(monaco)
+    luke.viajar(monaco)
+     luke.viajar(monaco)
+    luke.viajar(buenosAires)
+    assert.notEquals("Mate",luke.recuerdo())
 }

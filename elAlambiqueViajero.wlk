@@ -1,32 +1,17 @@
+import vehiculos.*
+import lugares.*
 object luke{
     var cantidadDeViajes = 0
     var recuerdo = null
+    var vehiculo = alambiqueVeloz
     method cuantosViajes() = cantidadDeViajes
     method viajar(lugar) { 
+        if(lugar.puedeLlegar(vehiculo)){
         recuerdo = lugar.recuerdoTipico()
         cantidadDeViajes +=1
+        vehiculo.desgastarVehiculo()
         }
+    }
     method recuerdo() = recuerdo
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-object paris{
-    method recuerdoTipico() = "Llavero de la torre Eiffel"
-    method puedeLlegar() = alambiqueVeloz.tieneCombustible()
-}
-
-object buenosAires(){
-    method recuerdoTipico()="Mate"
-    method puedeLlegar() = alambiqueVeloz.esRapido()
-}
+    method vehiculo(nuevo) { vehiculo = nuevo } 
+} 
