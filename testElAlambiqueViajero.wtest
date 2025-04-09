@@ -1,0 +1,12 @@
+import elAlambiqueViajero.*
+
+test"luke viaja a paris"{
+    luke.viajar(paris)
+    assert.equals("Llavero de la torre Eiffel",luke.recuerdo())
+}
+
+test "Luke cuenta cuando va de viaje"{
+    luke.viajar(paris)
+    assert.that(luke.cuantosViajes() > 0)
+
+}
