@@ -19,17 +19,17 @@ test "Luke viaja a buenos aires"{
 
 test "Luke viaja a paris en el Alambique y le queda energía en el vehiculo"{
     luke.viajar(paris)
-    assert.that(alambiqueVeloz.tieneEnergía())
+    assert.that(alambiqueVeloz.puedeFuncionar())
 }
 
 test "Luke viaja a buenos aires y le queda combustible"{
     luke.viajar(buenosAires)
-    assert.that(alambiqueVeloz.tieneEnergía())
+    assert.that(alambiqueVeloz.puedeFuncionar())
 }
 
 test "Luke viaja a bagdad y le queda combustible"{
     luke.viajar(bagdad)
-    assert.that(alambiqueVeloz.tieneEnergía())
+    assert.that(alambiqueVeloz.puedeFuncionar())
 }
 
 test "Luke viaja a bagdad con un nuevo recuerdo"{
