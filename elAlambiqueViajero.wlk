@@ -9,7 +9,7 @@ object luke{
         if(lugar.puedeLlegar(vehiculo)){
         recuerdo = lugar.recuerdoTipico()
         cantidadDeViajes +=1
-        vehiculo.desgastarVehiculo()
+        vehiculo.desgaste()
         }
     }
     method recuerdo() = recuerdo

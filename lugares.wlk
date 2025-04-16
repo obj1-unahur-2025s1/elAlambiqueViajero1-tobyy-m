@@ -2,7 +2,7 @@ import vehiculos.*
 
 object paris{
     method recuerdoTipico() = "Llavero de la torre Eiffel"
-    method puedeLlegar(vehiculo) = vehiculo.tieneEnergía()
+    method puedeLlegar(vehiculo) = vehiculo.puedeFuncionar()
 }
 
 object buenosAires{
@@ -27,11 +27,11 @@ object lasVegas{
 object roma{
     method recuerdoTipico() = "Mini Coliseo Romano"
     method puedeLlegar(vehiculo){
-        vehiculo.tieneEnergía() && not vehiculo.esRapido()
+        vehiculo.puedeFuncionar() && not vehiculo.esRapido()
     }
 }
 
 object monaco {
     method recuerdoTipico() = "Vehiculo miniatura de Formula 1"
-    method puedeLlegar(vehiculo) = vehiculo.tieneEnergía() && vehiculo.esRapido()
+    method puedeLlegar(vehiculo) = vehiculo.puedeFuncionar() && vehiculo.esRapido()
 }
